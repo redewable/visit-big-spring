@@ -1,6 +1,13 @@
 import PageHero from "@/components/PageHero";
 import BusinessCard from "@/components/BusinessCard";
+import WeatherChip from "@/components/WeatherChip";
 import { businessesByCategory } from "@/lib/data";
+
+// Big Spring State Park mesa — the weather readers come from this location
+// (on top of Scenic Mountain) rather than downtown Big Spring, since this
+// is the Explore page.
+const STATE_PARK_LAT = 32.2285;
+const STATE_PARK_LNG = -101.4902;
 
 export const metadata = {
   title: "Explore — Parks, outdoor recreation, scenic drives",
@@ -20,6 +27,19 @@ export default function ExplorePage() {
         image="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=2000&q=70"
       />
       <section className="container-bs py-20 md:py-28">
+        <div className="mb-10 flex flex-wrap items-center gap-4">
+          <p className="cine-label text-corten-700">
+            {items.length} places · Big Spring &amp; Howard County
+          </p>
+          <span className="hidden h-4 w-px bg-stone2-900/20 md:block" aria-hidden="true" />
+          <WeatherChip
+            tone="light"
+            showSuggestion
+            label="Scenic Mountain"
+            lat={STATE_PARK_LAT}
+            lng={STATE_PARK_LNG}
+          />
+        </div>
         <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {items.map((b) => (
             <li key={b.slug}>

@@ -7,14 +7,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lighthouse": "node scripts/lighthouse.mjs",
+    "lighthouse:local": "node scripts/lighthouse.mjs http://localhost:3000"
   },
   "dependencies": {
+    "mapbox-gl": "^3.22.0",
     "next": "^15.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@types/mapbox-gl": "^3.4.1",
     "@types/node": "^22.9.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",

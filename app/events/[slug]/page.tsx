@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { eventBySlug, events, formatEventDate } from "@/lib/data";
+import WeatherChip from "@/components/WeatherChip";
 
 export function generateStaticParams() {
   return events.map((e) => ({ slug: e.slug }));
@@ -58,6 +59,18 @@ export default async function EventDetailPage({ params }: { params: Promise<{ sl
             </div>
 
             <p className="mt-8 max-w-2xl text-lg text-stone2-700">{event.description}</p>
+
+            {event.outdoor && event.lat != null && event.lng != null && (
+              <div className="mt-8">
+                <WeatherChip
+                  tone="light"
+                  showSuggestion
+                  label="Forecast at the venue"
+                  lat={event.lat}
+                  lng={event.lng}
+                />
+              </div>
+            )}
 
             <div className="mt-10 flex flex-wrap gap-3">
               <Link href="/itinerary" className="btn-primary">

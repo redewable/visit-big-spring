@@ -48,6 +48,13 @@ export default function Header() {
             Meetings
           </Link>
           <Link
+            href="/stories"
+            className="cine-label text-stone2-900/80 transition hover:text-corten-700"
+            style={{ letterSpacing: "0.22em", fontSize: "0.7rem" }}
+          >
+            Stories
+          </Link>
+          <Link
             href="/itinerary"
             className="btn-primary !py-2 !px-5 text-xs"
             style={{ letterSpacing: "0.15em", textTransform: "uppercase" }}
@@ -106,6 +113,15 @@ export default function Header() {
                 className="block py-4 font-display text-2xl text-stone2-900"
               >
                 Meetings
+              </Link>
+            </li>
+            <li className="border-b border-stone2-900/10">
+              <Link
+                href="/stories"
+                onClick={() => setOpen(false)}
+                className="block py-4 font-display text-2xl text-stone2-900"
+              >
+                Stories
               </Link>
             </li>
             <li className="py-4">

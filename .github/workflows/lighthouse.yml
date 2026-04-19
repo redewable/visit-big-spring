@@ -1,0 +1,58 @@
+name: Lighthouse
+
+on:
+  # Manually trigger a re-audit.
+  workflow_dispatch:
+  # Run after Vercel finishes deploying (or on any push to main).
+  push:
+    branches: [main]
+
+# Don't let overlapping runs step on each other.
+concurrency:
+  group: lighthouse
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # Give Vercel a moment to finish building after the push that triggered us.
+      - name: Wait for deploy
+        if: github.event_name == 'push'
+        run: sleep 60
+
+      - name: Install Chrome (for headless Lighthouse)
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+
+      - name: Run Lighthouse
+        env:
+          CHROME_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
+        run: |
+          node scripts/lighthouse.mjs https://visit-big-spring.vercel.app/
+
+      - name: Commit updated scores
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet public/lighthouse-scores.json; then
+            echo "No score change."
+            exit 0
+          fi
+          git add public/lighthouse-scores.json
+          git commit -m "chore(lighthouse): update scores"
+          git push

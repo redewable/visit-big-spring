@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { sections } from "@/lib/data";
+import LighthouseBadge from "@/components/LighthouseBadge";
 
 export default function Footer() {
   return (
     <footer className="mt-24 bg-[#0b0a14] text-limestone-100">
       <div className="container-bs grid gap-12 py-20 md:grid-cols-12">
-        <div className="md:col-span-6">
+        <div className="md:col-span-5">
           <span className="tick-rule block text-corten-400" />
           <p className="cine-label mt-5 text-corten-400">
             Visit Big Spring · West Texas
@@ -41,10 +42,7 @@ export default function Footer() {
           </form>
         </div>
 
-        <nav
-          aria-label="Explore"
-          className="md:col-span-3"
-        >
+        <nav aria-label="Explore" className="md:col-span-2">
           <p className="cine-label text-corten-400">Explore</p>
           <ul className="mt-5 space-y-3 text-sm">
             {sections.map((s) => (
@@ -56,9 +54,20 @@ export default function Footer() {
             ))}
             <li>
               <Link href="/meetings" className="font-display text-xl hover:text-corten-400">
-                Meetings & Venues
+                Meetings
               </Link>
             </li>
+            <li>
+              <Link href="/stories" className="font-display text-xl hover:text-corten-400">
+                Stories
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Plan" className="md:col-span-2">
+          <p className="cine-label text-corten-400">Plan</p>
+          <ul className="mt-5 space-y-3 text-sm">
             <li>
               <Link href="/map" className="font-display text-xl hover:text-corten-400">
                 Interactive Map
@@ -69,27 +78,62 @@ export default function Footer() {
                 Itinerary Builder
               </Link>
             </li>
+            <li>
+              <Link href="/passes" className="font-display text-xl hover:text-corten-400">
+                Explorer Pass
+              </Link>
+            </li>
           </ul>
         </nav>
 
-        <div className="md:col-span-3">
-          <p className="cine-label text-corten-400">The office</p>
+        <nav aria-label="About" className="md:col-span-3">
+          <p className="cine-label text-corten-400">About</p>
           <address className="mt-5 not-italic text-sm leading-relaxed text-limestone-100/80">
             Big Spring Convention<br />
             &amp; Visitors Bureau<br />
             113 E 3rd Street<br />
             Big Spring, TX 79720
           </address>
-          <p className="mt-5 text-sm">
+          <p className="mt-4 text-sm">
             <a href="tel:+14322638235" className="slab hover:text-corten-400">
               432.263.8235
             </a>
           </p>
           <p className="mt-1 text-sm">
-            <a href="tel:+18664307100" className="text-xs text-limestone-100/60 hover:text-corten-400">
+            <a
+              href="tel:+18664307100"
+              className="text-xs text-limestone-100/60 hover:text-corten-400"
+            >
               Toll free · 866.430.7100
             </a>
           </p>
+          <ul className="mt-6 space-y-1.5 text-sm">
+            <li>
+              <Link
+                href="/about/how-this-site-works"
+                className="hover:text-corten-400"
+              >
+                How this site works
+              </Link>
+            </li>
+            <li>
+              <Link href="/accessibility" className="hover:text-corten-400">
+                Accessibility
+              </Link>
+            </li>
+            <li>
+              <Link href="/demo-admin" className="text-xs text-limestone-100/60 hover:text-corten-400">
+                Admin preview (for evaluators)
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      {/* Lighthouse scores strip */}
+      <div className="border-t border-limestone-100/10">
+        <div className="container-bs py-6">
+          <LighthouseBadge />
         </div>
       </div>
 

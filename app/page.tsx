@@ -2,9 +2,10 @@ import Link from "next/link";
 import EventCard from "@/components/EventCard";
 import BusinessCard from "@/components/BusinessCard";
 import WestTexasScene from "@/components/WestTexasScene";
+import WeatherChip from "@/components/WeatherChip";
 import { sections, upcomingEvents, businesses, venues } from "@/lib/data";
 
-export default function HomePage() {
+export default async function HomePage() {
   const featuredEvents = upcomingEvents(3);
   const featuredPlaces = businesses.slice(0, 3);
 
@@ -41,6 +42,10 @@ export default function HomePage() {
             Mesa sunsets. Wind-turbine horizons. A spring that fed mastodons.
             Where the Caprock meets Interstate&nbsp;20.
           </p>
+
+          <div className="mt-8">
+            <WeatherChip tone="dark" showSuggestion label="Right now" />
+          </div>
 
           <div className="mt-9 flex flex-wrap gap-3">
             <Link href="/itinerary" className="btn-primary">

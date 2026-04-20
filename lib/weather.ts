@@ -67,14 +67,38 @@ type ForecastResponse = {
 const POINTS_REVALIDATE = 60 * 60 * 24 * 7;
 /** 30-minute cache on forecast endpoints, per user brief. */
 const FORECAST_REVALIDATE = 60 * 30;
+/** Hard timeout on any NWS call. If the API stalls, we return null so the
+ *  build never exceeds Next's 60s static-generation budget and UI chips
+ *  simply render nothing. */
+const NWS_TIMEOUT_MS = 4500;
+
+/**
+ * fetch() with a timeout. Returns null on abort, network error, or non-2xx.
+ * Swallows AbortError intentionally — the caller decides what to do with null.
+ */
+async function timeoutFetch(
+  url: string,
+  init: RequestInit & { next?: { revalidate: number } },
+): Promise<Response | null> {
+  const controller = new AbortController();
+  const t = setTimeout(() => controller.abort(), NWS_TIMEOUT_MS);
+  try {
+    const res = await fetch(url, { ...init, signal: controller.signal });
+    return res.ok ? res : null;
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(t);
+  }
+}
 
 async function getForecastUrl(lat: number, lng: number): Promise<string | null> {
+  const res = await timeoutFetch(`https://api.weather.gov/points/${lat},${lng}`, {
+    headers: { "User-Agent": UA, Accept: "application/geo+json" },
+    next: { revalidate: POINTS_REVALIDATE },
+  });
+  if (!res) return null;
   try {
-    const res = await fetch(`https://api.weather.gov/points/${lat},${lng}`, {
-      headers: { "User-Agent": UA, Accept: "application/geo+json" },
-      next: { revalidate: POINTS_REVALIDATE },
-    });
-    if (!res.ok) return null;
     const data = (await res.json()) as PointsResponse;
     return data.properties.forecast ?? null;
   } catch {
@@ -83,12 +107,12 @@ async function getForecastUrl(lat: number, lng: number): Promise<string | null> 
 }
 
 async function fetchPeriods(forecastUrl: string): Promise<ForecastPeriod[] | null> {
+  const res = await timeoutFetch(forecastUrl, {
+    headers: { "User-Agent": UA, Accept: "application/geo+json" },
+    next: { revalidate: FORECAST_REVALIDATE },
+  });
+  if (!res) return null;
   try {
-    const res = await fetch(forecastUrl, {
-      headers: { "User-Agent": UA, Accept: "application/geo+json" },
-      next: { revalidate: FORECAST_REVALIDATE },
-    });
-    if (!res.ok) return null;
     const data = (await res.json()) as ForecastResponse;
     return data.properties.periods.map((p) => ({
       name: p.name,

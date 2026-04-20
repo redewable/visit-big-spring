@@ -44,7 +44,7 @@ export default async function HomePage() {
           </p>
 
           <div className="mt-8">
-            <WeatherChip tone="dark" showSuggestion label="Right now" />
+            <WeatherChip tone="dark" showSuggestion />
           </div>
 
           <div className="mt-9 flex flex-wrap gap-3">

@@ -27,15 +27,14 @@ export default function ExplorePage() {
         image="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=2000&q=70"
       />
       <section className="container-bs py-20 md:py-28">
-        <div className="mb-10 flex flex-wrap items-center gap-4">
+        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <p className="cine-label text-corten-700">
             {items.length} places · Big Spring &amp; Howard County
           </p>
-          <span className="hidden h-4 w-px bg-stone2-900/20 md:block" aria-hidden="true" />
           <WeatherChip
             tone="light"
             showSuggestion
-            label="Scenic Mountain"
+            label="Scenic Mountain · Now"
             lat={STATE_PARK_LAT}
             lng={STATE_PARK_LNG}
           />

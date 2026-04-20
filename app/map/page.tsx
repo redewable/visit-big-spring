@@ -20,13 +20,13 @@ export default function MapPage() {
         subtitle="Filter by category, plot a route, or zoom in on a neighborhood. Each pin links to the full listing."
       />
 
-      {/* Live weather pill in the top-right */}
-      <section className="container-bs pt-6">
-        <div className="flex flex-wrap items-center justify-between gap-4">
+      {/* Places count + live weather */}
+      <section className="container-bs pt-8">
+        <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <p className="cine-label text-corten-700">
             {businesses.length} places mapped
           </p>
-          <WeatherChip tone="light" label="Now in Big Spring" />
+          <WeatherChip tone="light" />
         </div>
       </section>
 

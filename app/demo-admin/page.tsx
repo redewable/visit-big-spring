@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { showDemoAdmin } from "@/lib/flags";
 
 export const metadata = {
   title: "Admin Preview — What CVB Staff See",
@@ -8,16 +9,20 @@ export const metadata = {
 };
 
 /**
+ * Force runtime rendering so toggling SHOW_DEMO_ADMIN in Vercel takes effect
+ * immediately — no rebuild required. Tradeoff: one tiny server render per
+ * request (the page has no external data calls, so it's still cheap).
+ */
+export const dynamic = "force-dynamic";
+
+/**
  * /demo-admin is intentionally gated. Accessible in development and on the
  * deployed prototype URL only when SHOW_DEMO_ADMIN=true is set. In a true
  * production deploy — when this ships as the live visitbigspring.com
  * replacement — the env var gets cleared and this route 404s.
  */
 export default function DemoAdminPage() {
-  const shown =
-    process.env.NODE_ENV !== "production" ||
-    process.env.SHOW_DEMO_ADMIN === "true";
-  if (!shown) notFound();
+  if (!showDemoAdmin()) notFound();
 
   return (
     <>

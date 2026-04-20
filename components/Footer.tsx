@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { sections } from "@/lib/data";
 import LighthouseBadge from "@/components/LighthouseBadge";
+import { showDemoAdmin } from "@/lib/flags";
 
 export default function Footer() {
+  const demoAdmin = showDemoAdmin();
   return (
     <footer className="mt-24 bg-[#0b0a14] text-limestone-100">
       <div className="container-bs grid gap-12 py-20 md:grid-cols-12">
@@ -121,11 +123,16 @@ export default function Footer() {
                 Accessibility
               </Link>
             </li>
-            <li>
-              <Link href="/demo-admin" className="text-xs text-limestone-100/60 hover:text-corten-400">
-                Admin preview (for evaluators)
-              </Link>
-            </li>
+            {demoAdmin && (
+              <li>
+                <Link
+                  href="/demo-admin"
+                  className="text-xs text-limestone-100/60 hover:text-corten-400"
+                >
+                  Admin preview (for evaluators)
+                </Link>
+              </li>
+            )}
           </ul>
         </nav>
       </div>

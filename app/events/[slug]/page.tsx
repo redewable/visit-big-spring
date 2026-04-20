@@ -61,11 +61,11 @@ export default async function EventDetailPage({ params }: { params: Promise<{ sl
             <p className="mt-8 max-w-2xl text-lg text-stone2-700">{event.description}</p>
 
             {event.outdoor && event.lat != null && event.lng != null && (
-              <div className="mt-8">
+              <div className="mt-10 border-t border-stone2-900/10 pt-8">
                 <WeatherChip
                   tone="light"
                   showSuggestion
-                  label="Forecast at the venue"
+                  label="At the venue · Now"
                   lat={event.lat}
                   lng={event.lng}
                 />

@@ -6,24 +6,36 @@ type Props = {
   lng?: number;
   /** Visual tone — matches the background it sits on. */
   tone?: "dark" | "light";
-  /** Whether to show the context-aware suggestion string. */
+  /** Show the context-aware suggestion line under the reading. */
   showSuggestion?: boolean;
-  /** Prefix label (e.g. "NOW", "AT EVENT TIME"). */
+  /**
+   * Optional small label (e.g. "Now · Big Spring", "At the venue").
+   * Omit for the cleanest inline reading.
+   */
   label?: string;
   className?: string;
 };
 
 /**
- * Server component that fetches current NWS conditions and renders a
- * small, accessible chip. Returns null if the fetch fails — the page
- * never breaks.
+ * Typographic weather reading. No border, no background — flows as type.
+ * Default output:
+ *
+ *   [☀]  72°  CLEAR
+ *
+ * With a label + suggestion, it layers like a dateline:
+ *
+ *   AT THE VENUE
+ *   [☀]  72°  CLEAR
+ *        Perfect for the Scenic Mountain loop.
+ *
+ * Server component. Returns null on fetch failure so the page never breaks.
  */
 export default async function WeatherChip({
   lat,
   lng,
   tone = "dark",
   showSuggestion = false,
-  label = "Now in Big Spring",
+  label,
   className = "",
 }: Props) {
   const w = await getCurrent(lat, lng);
@@ -31,42 +43,50 @@ export default async function WeatherChip({
 
   const isDark = tone === "dark";
 
+  const labelClass = isDark ? "text-limestone-50/60" : "text-stone2-500";
+  const tempClass = isDark ? "text-limestone-50" : "text-stone2-900";
+  const condClass = isDark ? "text-limestone-50/70" : "text-stone2-600";
+  const dotClass = isDark ? "bg-limestone-50/35" : "bg-stone2-900/25";
+  const suggestionClass = isDark ? "text-limestone-50/80" : "text-stone2-700";
+
   return (
     <div
-      className={`inline-flex items-center gap-3 border px-3.5 py-2 text-sm ${
-        isDark
-          ? "border-limestone-50/25 bg-black/30 text-limestone-50 backdrop-blur"
-          : "border-stone2-900/15 bg-white text-stone2-900"
-      } ${className}`}
-      aria-label={`Current conditions in Big Spring, ${w.temperature}°F, ${w.condition}`}
+      className={`flex items-start gap-3 ${className}`}
+      aria-label={`Current conditions in Big Spring, ${w.temperature} degrees Fahrenheit, ${w.condition}`}
     >
       <ConditionGlyph condition={w.condition} isDark={isDark} />
-      <div className="flex flex-col leading-tight">
-        <span
-          className={`slab text-[10px] tracking-[0.22em] ${
-            isDark ? "text-limestone-50/70" : "text-stone2-500"
+      <div className="leading-[1.15]">
+        {label && (
+          <p className={`slab text-[10px] tracking-[0.28em] uppercase ${labelClass}`}>
+            {label}
+          </p>
+        )}
+        <p
+          className={`flex items-baseline gap-2.5 ${
+            label ? "mt-1.5" : ""
           }`}
         >
-          {label}
-        </span>
-        <span className="font-display text-base">
-          <span className="font-[600]">{w.temperature}°F</span>
           <span
-            className={`mx-1.5 ${isDark ? "text-limestone-50/40" : "text-stone2-400"}`}
-            aria-hidden="true"
+            className={`font-display text-[26px] font-[600] tabular-nums ${tempClass}`}
           >
-            ·
+            {w.temperature}°
           </span>
-          <span>{w.condition}</span>
-        </span>
-        {showSuggestion && (
           <span
-            className={`text-xs ${
-              isDark ? "text-limestone-50/75" : "text-stone2-600"
-            }`}
+            aria-hidden="true"
+            className={`inline-block h-1 w-1 rounded-full ${dotClass}`}
+          />
+          <span
+            className={`slab text-[10px] tracking-[0.25em] uppercase ${condClass}`}
+          >
+            {w.condition}
+          </span>
+        </p>
+        {showSuggestion && (
+          <p
+            className={`mt-2 max-w-xs font-display text-sm italic leading-snug ${suggestionClass}`}
           >
             {suggestionFor(w)}
-          </span>
+          </p>
         )}
       </div>
     </div>
@@ -74,8 +94,8 @@ export default async function WeatherChip({
 }
 
 /**
- * Inline SVG condition glyph — not color-only per WCAG 1.4.1. A shape
- * always conveys the category even when the text wraps or color shifts.
+ * Inline SVG condition glyph. A shape always conveys the category even
+ * when color shifts or contrast inverts (WCAG 1.4.1).
  */
 function ConditionGlyph({
   condition,
@@ -86,8 +106,20 @@ function ConditionGlyph({
 }) {
   const c = condition.toLowerCase();
   const stroke = isDark ? "#f7f2e8" : "#211f1b";
-  const size = 22;
-  const p = { width: size, height: size, viewBox: "0 0 24 24", fill: "none", stroke, strokeWidth: 1.5, strokeLinecap: "round" as const, strokeLinejoin: "round" as const, "aria-hidden": true };
+  const opacity = isDark ? 0.85 : 0.7;
+  const p = {
+    width: 28,
+    height: 28,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke,
+    strokeOpacity: opacity,
+    strokeWidth: 1.4,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    "aria-hidden": true,
+    className: "mt-2 shrink-0",
+  };
 
   if (c.includes("rain") || c.includes("shower")) {
     return (

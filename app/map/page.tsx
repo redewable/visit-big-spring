@@ -17,7 +17,7 @@ export default function MapPage() {
       <PageHero
         eyebrow="The map"
         title="One map. Every stop."
-        subtitle="Filter by category, plot a route, or zoom in on a neighborhood. Each pin links to the full listing."
+        subtitle="Filter by category. Plot a route. Every pin opens a full listing."
       />
 
       {/* Places count + live weather */}

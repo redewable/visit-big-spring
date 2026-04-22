@@ -35,11 +35,10 @@ export default function MeetingsPage() {
               West Texas scale.
             </span>
           </h1>
-          <p className="mt-8 max-w-2xl text-base leading-relaxed text-limestone-50/85 md:text-lg">
-            One mesa-top amphitheater. A 90,000 square-foot coliseum. A
-            restored 1930 grand ballroom. Seven venues across Big Spring and
-            Howard County, from 250 guests to 6,000 — and the Convention &amp;
-            Visitors Bureau to help you land the right one.
+          <p className="mt-8 max-w-[44ch] text-pretty text-base leading-relaxed text-limestone-50/85 md:text-lg">
+            A mesa-top amphitheater. A 90,000-square-foot coliseum. A 1930
+            grand ballroom. Seven venues, 250 to 6,000 guests — the CVB
+            matches you to the right room.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-3">
@@ -81,14 +80,14 @@ export default function MeetingsPage() {
               Heads in beds<br />
               pay for all of this.
             </h2>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-limestone-50/90 md:text-lg">
+            <p className="mt-6 max-w-[48ch] text-pretty text-base leading-relaxed text-limestone-50/90 md:text-lg">
               Every hotel night booked in Big Spring contributes Hotel
               Occupancy Tax. Under Texas law, HOT revenue can only be spent on
               activities that bring more visitors — venue marketing, event
               recruitment, convention hosting, and the destination website you
               are reading right now.
             </p>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-limestone-50/90 md:text-lg">
+            <p className="mt-5 max-w-[48ch] text-pretty text-base leading-relaxed text-limestone-50/90 md:text-lg">
               Booking a conference here doesn&apos;t just fill a ballroom. It
               pays for the next festival, the next scenic-mountain run, and
               the next traveler who fills a room after you leave.

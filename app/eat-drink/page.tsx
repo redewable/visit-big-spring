@@ -15,7 +15,7 @@ export default function EatDrinkPage() {
       <PageHero
         eyebrow="02 · Eat & Drink"
         title="Hometown tables, long tabs."
-        subtitle="Generations-old Tex-Mex, chef-driven steakhouses, a walnut-and-brass cocktail parlor inside a 1930 hotel, and a downtown art gallery that pours after dark."
+        subtitle="Generations-old Tex-Mex. A 1930 hotel kitchen. A downtown gallery that pours after dark."
         accent="corten"
         image="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2000&q=70"
       />

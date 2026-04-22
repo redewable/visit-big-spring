@@ -116,7 +116,7 @@ export default function EventsPage() {
       <PageHero
         eyebrow="Events"
         title="Festivals, rodeos, and small-town holidays."
-        subtitle="A year-round calendar built around symphony nights, rodeos, the Festival of Lights — and Pops in the Park every July 3rd."
+        subtitle="Symphony nights. Howard County rodeos. Pops in the Park every July 3rd. Festival of Lights through the holidays."
       />
 
       {/* Filter row */}

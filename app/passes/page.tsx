@@ -73,7 +73,7 @@ export default function PassesPage() {
             The Big Spring<br />
             <span className="italic font-[500]">Explorer Pass.</span>
           </h1>
-          <p className="mt-8 max-w-2xl text-base leading-relaxed text-limestone-50/90 md:text-xl">
+          <p className="mt-8 max-w-[44ch] text-pretty text-base leading-relaxed text-limestone-50/90 md:text-xl">
             One pass. Every participating attraction. Built for the weekend
             visitor who doesn&apos;t want to think about tickets.
           </p>

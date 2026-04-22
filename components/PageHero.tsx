@@ -61,14 +61,14 @@ export default function PageHero({
         </p>
         <h1
           id="page-hero-title"
-          className="monument mt-5 text-[clamp(2.75rem,8vw,6rem)]"
+          className="monument mt-5 text-[clamp(2.25rem,7vw,5.5rem)] text-balance"
           style={{ color: onDark ? "#f7f2e8" : "#211f1b" }}
         >
           {title}
         </h1>
         {subtitle && (
           <p
-            className="mt-7 max-w-2xl text-base leading-relaxed md:text-lg"
+            className="mt-7 max-w-[42ch] text-pretty text-base leading-relaxed md:text-lg"
             style={{ color: onDark ? "rgba(247,242,232,0.88)" : "#4a463d" }}
           >
             {subtitle}

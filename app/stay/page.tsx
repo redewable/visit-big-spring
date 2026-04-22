@@ -15,7 +15,7 @@ export default function StayPage() {
       <PageHero
         eyebrow="01 · Stay"
         title="Rest easy under a wide Texas sky."
-        subtitle="Historic downtown landmarks and dependable interstate stays. Proceeds from hotel occupancy tax fund the Convention & Visitors Bureau's work — including what you're reading now."
+        subtitle="Historic downtown landmarks. Reliable interstate stays. Every room booked funds tourism — including this site."
         accent="obsidian"
         image="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2000&q=70"
       />

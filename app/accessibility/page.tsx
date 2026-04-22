@@ -91,7 +91,7 @@ export default function AccessibilityPage() {
             Accessibility at<br />
             <span className="italic font-[500]">Visit Big Spring.</span>
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-stone2-700 md:text-lg">
+          <p className="mt-6 max-w-[44ch] text-pretty text-base leading-relaxed text-stone2-700 md:text-lg">
             Visit Big Spring is a public, tax-funded resource. Every traveler
             deserves equal access — regardless of ability, device, or
             network. This site conforms to the{" "}

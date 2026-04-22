@@ -48,7 +48,7 @@ export default async function HomePage() {
             BIG<br />SPRING
           </h1>
 
-          <p className="mt-7 max-w-[30ch] text-base leading-relaxed text-limestone-50/85 sm:max-w-xl sm:text-lg md:text-xl md:leading-relaxed">
+          <p className="mt-7 max-w-[30ch] text-pretty text-base leading-relaxed text-limestone-50/85 sm:max-w-[44ch] sm:text-lg md:text-xl md:leading-relaxed">
             Mesa sunsets. Wind-turbine horizons. A spring that fed mastodons.
             Where the Caprock meets Interstate&nbsp;20.
           </p>
@@ -205,12 +205,12 @@ export default async function HomePage() {
               Older than Texas.<br />
               <span className="italic font-[500] text-limestone-100/80">Older than most things.</span>
             </h2>
-            <p className="mt-7 max-w-xl text-base leading-relaxed text-limestone-50/90 md:text-lg">
+            <p className="mt-7 max-w-[44ch] text-pretty text-base leading-relaxed text-limestone-50/90 md:text-lg">
               Remains of mastodon, wooly mammoth, and saber-toothed tiger have
               been found near the spring. It was already the best water in
               West Texas before there <em>was</em> a West Texas.
             </p>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-limestone-50/90 md:text-lg">
+            <p className="mt-5 max-w-[44ch] text-pretty text-base leading-relaxed text-limestone-50/90 md:text-lg">
               Cabeza de Vaca noted it in 1535. Captain Randolph Marcy camped
               here in 1849. The Comanche gathered here on the Great Comanche
               War Trail. The railroad followed. The Bankhead Highway followed
@@ -281,7 +281,7 @@ export default async function HomePage() {
               that named{" "}
               <span className="italic font-[500]">a town.</span>
             </h2>
-            <p className="mt-7 max-w-xl text-base leading-relaxed text-limestone-50/85 md:text-lg">
+            <p className="mt-7 max-w-[44ch] text-pretty text-base leading-relaxed text-limestone-50/85 md:text-lg">
               A reliable spring in a rocky gorge, where the Edwards Plateau
               and the Caprock converge. For ten thousand years it pulled
               humans and animals out of the plain. In 2019 the Convention
@@ -399,7 +399,7 @@ export default async function HomePage() {
           >
             SUNSET
           </h2>
-          <p className="mx-auto mt-10 max-w-xl text-base leading-relaxed text-limestone-50/90 md:text-lg">
+          <p className="mx-auto mt-10 max-w-[44ch] text-pretty text-base leading-relaxed text-limestone-50/90 md:text-lg">
             Two hundred feet above the plain, Scenic Mountain turns every
             evening into a show. A canvas of colors in the sky.
           </p>
@@ -439,7 +439,7 @@ export default async function HomePage() {
               >
                 Built at<br />West Texas scale.
               </h2>
-              <p className="mt-6 max-w-md text-stone2-700">
+              <p className="mt-6 max-w-md text-pretty text-stone2-700">
                 One mesa-top amphitheater. A 90,000 square-foot coliseum. A
                 restored 1930 grand ballroom. Seven venues from 250 guests
                 to 6,000 — all bookable through the CVB.
@@ -503,7 +503,7 @@ export default async function HomePage() {
                 <h2 className="monument mt-4 text-[clamp(2rem,5vw,3.5rem)]">
                   Build a weekend<br />you&apos;ll remember.
                 </h2>
-                <p className="mt-6 max-w-md text-stone2-700">
+                <p className="mt-6 max-w-md text-pretty text-stone2-700">
                   Pick attractions, add places to eat, reorder the day.
                   Save it, print it, text the share link to your travel crew.
                 </p>

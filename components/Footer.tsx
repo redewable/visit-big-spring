@@ -99,9 +99,11 @@ export default function Footer() {
 
         <nav aria-label="About" className="md:col-span-3">
           <p className="cine-label text-corten-400">About</p>
-          <address className="mt-5 not-italic text-sm leading-relaxed text-limestone-100/80">
+          <p className="mt-5 font-display text-base leading-snug text-limestone-50">
             Big Spring Convention<br />
-            &amp; Visitors Bureau<br />
+            &amp; Visitors Bureau
+          </p>
+          <address className="mt-3 not-italic text-sm leading-relaxed text-limestone-100/80">
             113 E 3rd Street<br />
             Big Spring, TX 79720
           </address>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { businessBySlug, businesses, googleMapsUrl } from "@/lib/data";
+import { splitAddress } from "@/lib/addr";
 
 export function generateStaticParams() {
   return businesses.map((b) => ({ slug: b.slug }));
@@ -109,12 +110,8 @@ export default async function BusinessDetailPage({
               {biz.blurb}
             </p>
 
-            <dl className="mt-10 grid gap-4 sm:grid-cols-3">
-              <Detail
-                label="Address"
-                value={biz.address}
-                href={googleMapsUrl(biz)}
-              />
+            <dl className="mt-10 grid gap-8 sm:grid-cols-3">
+              <AddressBlock biz={biz} />
               {biz.phone && (
                 <Detail label="Phone" value={biz.phone} href={`tel:${biz.phone}`} />
               )}
@@ -214,6 +211,34 @@ export default async function BusinessDetailPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
     </>
+  );
+}
+
+function AddressBlock({
+  biz,
+}: {
+  biz: { name: string; address: string };
+}) {
+  const { street, cityState } = splitAddress(biz.address);
+  return (
+    <div>
+      <dt className="slab text-[10px] tracking-[0.22em] text-stone2-500">
+        ADDRESS
+      </dt>
+      <dd className="mt-2">
+        <a
+          href={googleMapsUrl(biz)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block text-corten-700 hover:underline"
+        >
+          <address className="not-italic font-display text-lg leading-snug">
+            <span className="block">{street}</span>
+            {cityState && <span className="block">{cityState}</span>}
+          </address>
+        </a>
+      </dd>
+    </div>
   );
 }
 

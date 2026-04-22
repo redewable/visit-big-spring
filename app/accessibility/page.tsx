@@ -87,7 +87,7 @@ export default function AccessibilityPage() {
         <div className="container-bs">
           <span className="tick-rule block text-corten-500" />
           <p className="cine-label mt-5 text-corten-700">Our commitment</p>
-          <h1 className="monument mt-4 text-[clamp(2.5rem,6.5vw,5rem)]">
+          <h1 className="monument mt-4 text-[clamp(2rem,6vw,4.5rem)]">
             Accessibility at<br />
             <span className="italic font-[500]">Visit Big Spring.</span>
           </h1>

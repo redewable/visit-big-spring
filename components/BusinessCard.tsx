@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Business } from "@/lib/data";
+import { splitAddress } from "@/lib/addr";
 
 /**
  * Card treatments:
@@ -79,9 +80,17 @@ export default function BusinessCard({ biz }: { biz: Business }) {
             </span>
           ))}
         </div>
-        <p className="mt-5 border-t border-stone2-900/10 pt-4 text-xs text-stone2-500">
-          {biz.address}
-        </p>
+        <address className="mt-5 not-italic border-t border-stone2-900/10 pt-4 text-xs leading-relaxed text-stone2-500">
+          {(() => {
+            const { street, cityState } = splitAddress(biz.address);
+            return (
+              <>
+                <span className="block">{street}</span>
+                {cityState && <span className="block">{cityState}</span>}
+              </>
+            );
+          })()}
+        </address>
       </div>
     </article>
   );

@@ -347,9 +347,9 @@ export default async function HomePage() {
               <p className="cine-label mt-5 text-corten-700">Local favorites</p>
               <h2
                 id="places-title"
-                className="monument mt-4 text-[clamp(2.25rem,5vw,3.75rem)]"
+                className="monument mt-4 text-[clamp(1.875rem,4.5vw,3.25rem)]"
               >
-                Where locals send<br />out-of-towners.
+                The locals&apos; list.
               </h2>
             </div>
             <Link href="/explore" className="btn-ghost">
@@ -435,9 +435,9 @@ export default async function HomePage() {
               </p>
               <h2
                 id="mtg-title"
-                className="monument mt-4 text-[clamp(2.25rem,5vw,3.75rem)]"
+                className="monument mt-4 text-[clamp(1.875rem,4.5vw,3.25rem)]"
               >
-                Meetings built at<br />West Texas scale.
+                Built at<br />West Texas scale.
               </h2>
               <p className="mt-6 max-w-md text-stone2-700">
                 One mesa-top amphitheater. A 90,000 square-foot coliseum. A

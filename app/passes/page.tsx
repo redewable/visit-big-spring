@@ -69,7 +69,7 @@ export default function PassesPage() {
           <p className="cine-label mt-6 text-corten-400">
             Launching · <span className="slab">Fall 2026</span>
           </p>
-          <h1 className="monument mt-6 text-[clamp(3rem,8vw,6.5rem)]">
+          <h1 className="monument mt-6 text-[clamp(2.25rem,7vw,5.5rem)]">
             The Big Spring<br />
             <span className="italic font-[500]">Explorer Pass.</span>
           </h1>

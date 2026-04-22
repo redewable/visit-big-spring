@@ -29,10 +29,10 @@ export default function MeetingsPage() {
           <p className="cine-label mt-6 text-corten-400">
             04 · Meetings & Events
           </p>
-          <h1 className="monument mt-6 text-[clamp(3rem,8vw,6.5rem)] text-limestone-50">
-            Meetings built<br />
+          <h1 className="monument mt-6 text-[clamp(2.25rem,7vw,5.5rem)] text-limestone-50">
+            Built at<br />
             <span className="italic font-[500] text-limestone-50/85">
-              at West Texas scale.
+              West Texas scale.
             </span>
           </h1>
           <p className="mt-8 max-w-2xl text-base leading-relaxed text-limestone-50/85 md:text-lg">

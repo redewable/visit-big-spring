@@ -135,6 +135,41 @@ export default async function BusinessDetailPage({
         </div>
       </article>
 
+      {biz.gallery && biz.gallery.length > 0 && (
+        <section aria-labelledby="gallery-title" className="bg-sand-50 py-20 md:py-28">
+          <div className="container-bs">
+            <span className="tick-rule block text-corten-500" />
+            <p className="cine-label mt-5 text-corten-700">Gallery</p>
+            <h2
+              id="gallery-title"
+              className="monument mt-3 text-[clamp(2rem,4.5vw,3.25rem)]"
+            >
+              More from {biz.name}.
+            </h2>
+            <ul className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {biz.gallery.map((src, i) => (
+                <li
+                  key={src}
+                  className={
+                    // Break the rhythm — every 5th photo spans 2 cols on lg
+                    i % 5 === 0
+                      ? "lg:col-span-2 lg:row-span-2"
+                      : ""
+                  }
+                >
+                  <div
+                    className="relative aspect-[4/3] w-full overflow-hidden border border-stone2-900/10 bg-stone2-100 bg-cover bg-center transition hover:border-corten-500/50"
+                    style={{ backgroundImage: `url(${src})` }}
+                    role="img"
+                    aria-label={`${biz.name} — photograph ${i + 1}`}
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}

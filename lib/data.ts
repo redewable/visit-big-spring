@@ -51,6 +51,13 @@ export type Business = {
   phone?: string;
   website?: string;
   image: string;
+  /**
+   * Optional additional photography for the detail page gallery.
+   * First photo in this array shows below the `image` (hero); the rest
+   * form a responsive grid. Keep ordering deliberate — the CMS will
+   * preserve it.
+   */
+  gallery?: string[];
   tags: string[];
   /** Pin location for the interactive map. */
   lat: number;
@@ -105,6 +112,14 @@ export const businesses: Business[] = [
     address: "Golf Course Road, Big Spring, TX 79720",
     phone: "432-264-2323",
     image: "/assets/venues/comanche-trail-park-entrance.jpeg",
+    gallery: [
+      "/assets/venues/comanche-trail-park-ampitheater.jpeg",
+      "/assets/venues/comanche-trail-park-old-settlers-pavillion.jpeg",
+      "/assets/venues/comanche-trail-park-cotton-mize-baseball-field.jpeg",
+      "/assets/venues/comanche-trail-park-playground.jpeg",
+      "/assets/venues/kids-zone.jpeg",
+      "/assets/venues/comanche-trail-park-bench.jpeg",
+    ],
     tags: ["Park", "CCC heritage", "Family friendly"],
     lat: 32.2128,
     lng: -101.4828,
@@ -770,7 +785,7 @@ export const venues: Venue[] = [
       "Parking for 1,000+",
     ],
     phone: "432-264-2323",
-    image: "/assets/venues/comanche-trail-park-ampitheater.jpeg",
+    image: "/assets/venues/comanche-trail-park-ampitheater-seating.jpeg",
     blurb:
       "The city's largest venue. A CCC-built stone amphitheater inside Comanche Trail Park, for concerts, rodeo kick-offs, symphony nights and the Annual Fourth of July Celebration.",
   },
@@ -890,6 +905,24 @@ export const venues: Venue[] = [
     blurb:
       "A reliable mid-size reception hall for weddings, banquets, and community events up to 250 guests.",
   },
+  {
+    slug: "old-settlers-pavilion",
+    name: "Old Settlers Pavilion",
+    capacity: 80,
+    capacityNote: "Seated picnic-style; more for standing receptions",
+    setting: "outdoor",
+    tier: 5,
+    features: [
+      "Covered stone pavilion inside Comanche Trail Park",
+      "Picnic tables + grills",
+      "Short walk to the lake and amphitheater",
+      "Reservable through the Parks Department",
+    ],
+    phone: "432-264-2323",
+    image: "/assets/venues/comanche-trail-park-old-settlers-pavillion.jpeg",
+    blurb:
+      "The most-requested picnic pavilion in Comanche Trail Park — shaded, stone-built, and the city's favorite spot for family reunions, birthdays, and rehearsal dinners.",
+  },
 ];
 
 export function venueBySlug(slug: string) {
@@ -980,8 +1013,7 @@ The museum is open Tuesday through Saturday. Admission is donation-based. Ask th
     author: "Visit Big Spring editorial",
     date: "2026-03-21",
     readMinutes: 4,
-    image:
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1600&q=75",
+    image: "/assets/hero/Big-Spring-Sunset_Visit-Big-Spring.avif",
     body: `Most national parks require a plane ticket, a reservation, and a crowd.
 
 Big Spring doesn't.

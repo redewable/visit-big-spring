@@ -11,14 +11,32 @@ export default function StoriesIndexPage() {
   const sorted = [...stories].sort((a, b) => +new Date(b.date) - +new Date(a.date));
   return (
     <>
-      <section className="bg-sand-50 py-24 md:py-28">
+      <section className="relative isolate overflow-hidden bg-[#1a1324] py-28 text-limestone-50 md:py-36">
+        {/* Official Sunset Big Spring brand graphic */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 bg-cover bg-center opacity-80"
+          style={{
+            backgroundImage:
+              "url(/assets/brand/sunset-big-spring-graphic.png)",
+          }}
+        />
+        {/* Dark wash for type */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(11,10,20,0.55) 0%, rgba(11,10,20,0.3) 45%, rgba(11,10,20,0.7) 100%)",
+          }}
+        />
         <div className="container-bs">
-          <span className="tick-rule block text-corten-500" />
-          <p className="cine-label mt-5 text-corten-700">Stories</p>
-          <h1 className="monument mt-4 text-[clamp(2.75rem,7vw,5.5rem)]">
-            Essays on <span className="italic font-[500]">Big Spring.</span>
+          <span className="tick-rule block text-corten-400" />
+          <p className="cine-label mt-5 text-limestone-50/75">Stories</p>
+          <h1 className="monument mt-4 text-[clamp(2.75rem,7vw,5.5rem)] text-limestone-50">
+            Essays on <span className="italic font-[500] text-limestone-50/85">Big Spring.</span>
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-stone2-700 md:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-limestone-50/85 md:text-lg">
             Place-grounded, warm, honest. Written by the CVB editorial team — no
             press release voice, no SEO padding.
           </p>

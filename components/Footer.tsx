@@ -9,7 +9,16 @@ export default function Footer() {
     <footer className="mt-24 bg-[#0b0a14] text-limestone-100">
       <div className="container-bs grid gap-12 py-20 md:grid-cols-12">
         <div className="md:col-span-5">
-          <span className="tick-rule block text-corten-400" />
+          {/* Official Visit Big Spring wordmark — small scale keeps PNG crisp */}
+          <img
+            src="/assets/brand/big-spring-main-logo.png"
+            alt="Visit Big Spring"
+            width="138"
+            height="90"
+            className="h-14 w-auto"
+            decoding="async"
+          />
+          <span className="tick-rule mt-8 block text-corten-400" />
           <p className="cine-label mt-5 text-corten-400">
             Visit Big Spring · West Texas
           </p>

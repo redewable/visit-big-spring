@@ -302,56 +302,36 @@ export default async function HomePage() {
             </div>
           </div>
 
-          {/* Typographic panel — three moments, each with context */}
-          <aside className="md:col-span-5">
-            <div
-              className="relative overflow-hidden border border-corten-700/60 bg-[#120808]"
-              aria-hidden="true"
-            >
-              {/* Soft corten wash anchored bottom-right */}
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "radial-gradient(60% 70% at 80% 90%, rgba(168,88,46,0.35), transparent 70%)",
-                }}
+          {/* Three moments — pure type, no container. Sits on the section. */}
+          <aside className="md:col-span-5 md:pt-2">
+            <span className="cine-label text-limestone-50/55">
+              Visited · Noted · Restored
+            </span>
+
+            <ol className="mt-6 divide-y divide-limestone-50/10">
+              <DateRow
+                era="XVI"
+                year="1535"
+                title="Cabeza de Vaca"
+                context="Noted the spring on his overland crossing."
               />
-              <div className="relative p-8 md:p-10">
-                <span className="cine-label text-limestone-50/60">
-                  Visited · Noted · Restored
-                </span>
+              <DateRow
+                era="XIX"
+                year="1849"
+                title="Captain Marcy"
+                context="Camped here on the Overland Trail to California."
+              />
+              <DateRow
+                era="XXI"
+                year="2019"
+                title="CVB Restoration"
+                context="Eight corten-metal story boards on limestone."
+              />
+            </ol>
 
-                <ol className="mt-8 divide-y divide-limestone-50/10">
-                  <DateRow
-                    era="XVI"
-                    year="1535"
-                    title="Cabeza de Vaca"
-                    context="Noted the spring on his overland crossing."
-                  />
-                  <DateRow
-                    era="XIX"
-                    year="1849"
-                    title="Captain Marcy"
-                    context="Camped here on the Overland Trail to California."
-                  />
-                  <DateRow
-                    era="XXI"
-                    year="2019"
-                    title="CVB Restoration"
-                    context="Eight corten-metal story boards on limestone."
-                  />
-                </ol>
-
-                <div className="mt-8 flex items-center justify-between border-t border-limestone-50/10 pt-5">
-                  <span className="cine-label text-limestone-50/55">
-                    Comanche Trail Park
-                  </span>
-                  <span className="slab text-[10px] uppercase tracking-[0.22em] text-limestone-50/40">
-                    32.21° N · -101.48° W
-                  </span>
-                </div>
-              </div>
-            </div>
+            <p className="mt-6 slab text-[10px] uppercase tracking-[0.25em] text-limestone-50/45">
+              Comanche Trail Park · 32.21° N · -101.48° W
+            </p>
           </aside>
         </div>
       </section>

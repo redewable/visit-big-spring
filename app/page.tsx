@@ -275,9 +275,11 @@ export default async function HomePage() {
             <p className="cine-label mt-5 text-corten-400">Sulphur Draw</p>
             <h2
               id="spring-title"
-              className="monument mt-4 text-[clamp(2.5rem,7vw,5.5rem)]"
+              className="monument mt-4 text-[clamp(2.5rem,6.5vw,5rem)]"
             >
-              The spring that<br />named <span className="italic font-[500]">a town.</span>
+              The spring<br />
+              that named{" "}
+              <span className="italic font-[500]">a town.</span>
             </h2>
             <p className="mt-7 max-w-xl text-base leading-relaxed text-limestone-50/85 md:text-lg">
               A reliable spring in a rocky gorge, where the Edwards Plateau
@@ -300,48 +302,54 @@ export default async function HomePage() {
             </div>
           </div>
 
-          {/* Typographic panel — no cartoon plaque */}
+          {/* Typographic panel — three moments, each with context */}
           <aside className="md:col-span-5">
             <div
-              className="relative aspect-[4/5] overflow-hidden border border-corten-700/60 bg-[#120808]"
+              className="relative overflow-hidden border border-corten-700/60 bg-[#120808]"
               aria-hidden="true"
             >
-              {/* Soft corten wash */}
+              {/* Soft corten wash anchored bottom-right */}
               <div
                 className="absolute inset-0"
                 style={{
                   background:
-                    "radial-gradient(60% 70% at 50% 100%, rgba(168,88,46,0.45), transparent 70%)",
+                    "radial-gradient(60% 70% at 80% 90%, rgba(168,88,46,0.35), transparent 70%)",
                 }}
               />
-              {/* Monumental date stack */}
-              <div className="relative flex h-full flex-col justify-between p-8 md:p-10">
+              <div className="relative p-8 md:p-10">
                 <span className="cine-label text-limestone-50/60">
                   Visited · Noted · Restored
                 </span>
-                <ol className="space-y-6 font-display text-[clamp(2rem,4vw,3.25rem)] font-[500] leading-none text-limestone-50">
-                  <li className="flex items-baseline gap-4">
-                    <span className="slab text-sm tracking-[0.22em] text-corten-400">
-                      XVI
-                    </span>
-                    <span>1535</span>
-                  </li>
-                  <li className="flex items-baseline gap-4">
-                    <span className="slab text-sm tracking-[0.22em] text-corten-400">
-                      XIX
-                    </span>
-                    <span>1849</span>
-                  </li>
-                  <li className="flex items-baseline gap-4">
-                    <span className="slab text-sm tracking-[0.22em] text-corten-400">
-                      XXI
-                    </span>
-                    <span>2019</span>
-                  </li>
+
+                <ol className="mt-8 divide-y divide-limestone-50/10">
+                  <DateRow
+                    era="XVI"
+                    year="1535"
+                    title="Cabeza de Vaca"
+                    context="Noted the spring on his overland crossing."
+                  />
+                  <DateRow
+                    era="XIX"
+                    year="1849"
+                    title="Captain Marcy"
+                    context="Camped here on the Overland Trail to California."
+                  />
+                  <DateRow
+                    era="XXI"
+                    year="2019"
+                    title="CVB Restoration"
+                    context="Eight corten-metal story boards on limestone."
+                  />
                 </ol>
-                <span className="cine-label text-limestone-50/50">
-                  Comanche Trail Park
-                </span>
+
+                <div className="mt-8 flex items-center justify-between border-t border-limestone-50/10 pt-5">
+                  <span className="cine-label text-limestone-50/55">
+                    Comanche Trail Park
+                  </span>
+                  <span className="slab text-[10px] uppercase tracking-[0.22em] text-limestone-50/40">
+                    32.21° N · -101.48° W
+                  </span>
+                </div>
               </div>
             </div>
           </aside>
@@ -401,11 +409,6 @@ export default async function HomePage() {
             background:
               "linear-gradient(180deg, rgba(26,19,36,0.55) 0%, rgba(26,19,36,0.15) 45%, rgba(26,19,36,0.45) 100%)",
           }}
-        />
-        {/* Horizon rule */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-x-0 top-[62%] h-[1px] bg-limestone-50/25"
         />
         <div className="container-bs relative text-center">
           <p className="cine-label text-limestone-50/80">#SUNSETBIGSPRING</p>
@@ -556,6 +559,36 @@ export default async function HomePage() {
         </div>
       </section>
     </>
+  );
+}
+
+function DateRow({
+  era,
+  year,
+  title,
+  context,
+}: {
+  era: string;
+  year: string;
+  title: string;
+  context: string;
+}) {
+  return (
+    <li className="grid grid-cols-[auto,1fr] items-baseline gap-x-5 py-5 first:pt-0">
+      <span className="slab text-xs tracking-[0.22em] text-corten-400">
+        {era}
+      </span>
+      <span className="flex items-baseline gap-3">
+        <span className="font-display text-4xl font-[500] text-limestone-50 md:text-5xl">
+          {year}
+        </span>
+        <span className="font-display text-sm text-limestone-50/70">
+          {title}
+        </span>
+      </span>
+      <span aria-hidden="true" />
+      <span className="mt-1 text-sm text-limestone-50/70">{context}</span>
+    </li>
   );
 }
 

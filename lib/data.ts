@@ -58,6 +58,13 @@ export type Business = {
    * preserve it.
    */
   gallery?: string[];
+  /**
+   * Optional structured facts for the detail page "Know before you go"
+   * block — admission, hours, rules, rentals, etc. Each section is
+   * rendered as a tight group with a slab heading and bullet items.
+   * Keep items short; long text belongs in `editorial`.
+   */
+  knowBeforeYouGo?: { heading: string; items: string[] }[];
   tags: string[];
   /** Pin location for the interactive map. */
   lat: number;
@@ -147,9 +154,56 @@ export const businesses: Business[] = [
       "A summer-season aquatic park inside Comanche Trail Park — two slides, a lazy river, a kids' splash zone, sand play area, and shaded pavilions for rent.",
     address: "911 E. Golf Course Rd, Big Spring, TX 79720",
     phone: "432-264-0037",
-    image:
-      "https://images.unsplash.com/photo-1534804055670-7f7b0d8fb3ca?auto=format&fit=crop&w=1400&q=70",
+    website: "https://www.visitbigspring.com/",
+    image: "/assets/venues/Russ-McEwen-Family-Aquatic-Center.jpg",
     tags: ["Family", "Seasonal", "Pool"],
+    knowBeforeYouGo: [
+      {
+        heading: "Admission",
+        items: [
+          "$5 · adults and children age 3 and up",
+          "Free · children age 2 and under",
+          "$50 · 12-entry punch pass",
+          "Cash, debit or credit only — no checks",
+        ],
+      },
+      {
+        heading: "Summer hours",
+        items: [
+          "Tuesday – Friday · 12:00 pm – 8:00 pm",
+          "Saturday · 11:00 am – 8:00 pm",
+          "Sunday · 1:00 pm – 8:00 pm",
+          "Closed Mondays (reserved for private full-facility rental)",
+        ],
+      },
+      {
+        heading: "Bring the kids",
+        items: [
+          "Children ages 11 and under must be accompanied by someone 16 or older",
+          "A parent or guardian must accompany any child under 5 or under 48 inches at all times",
+          "Swim diapers are required for children 3 and under",
+          "U.S. Coast Guard-approved life vests welcome",
+        ],
+      },
+      {
+        heading: "Good to know",
+        items: [
+          "No outside food or drink (exception: pavilion renters may bring a cake)",
+          "No glass or metal containers, no ice chests",
+          "Proper swim attire required — denim or cut-offs not permitted",
+          "Permitted: wacky noodles, water shoes, goggles",
+        ],
+      },
+      {
+        heading: "Rentals",
+        items: [
+          "Pavilions · $25/hour (2-hour minimum) + $25 cleaning deposit — 4 pavilions available",
+          "Private group rental · $4/person, $100 minimum (Tue–Fri, 11am–12pm, reserve 7+ days ahead)",
+          "Full facility rental · Mondays 1–8pm · $200/hour + $200 deposit",
+          "Reservations: Terri Telchik, Facilities Coordinator · 432-264-2323",
+        ],
+      },
+    ],
     lat: 32.2122,
     lng: -101.4811,
   },

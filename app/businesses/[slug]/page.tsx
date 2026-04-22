@@ -131,6 +131,45 @@ export default async function BusinessDetailPage({
                 See on map
               </Link>
             </div>
+
+            {biz.knowBeforeYouGo && biz.knowBeforeYouGo.length > 0 && (
+              <section
+                aria-labelledby="kbyg-title"
+                className="mt-14 border-t border-stone2-900/10 pt-10"
+              >
+                <span className="tick-rule block text-corten-500" />
+                <p className="cine-label mt-5 text-corten-700">The details</p>
+                <h2
+                  id="kbyg-title"
+                  className="mt-3 font-display text-3xl md:text-4xl"
+                >
+                  Know before you go.
+                </h2>
+
+                <dl className="mt-10 grid gap-x-10 gap-y-8 md:grid-cols-2">
+                  {biz.knowBeforeYouGo.map((s) => (
+                    <div key={s.heading}>
+                      <dt className="slab text-[11px] uppercase tracking-[0.25em] text-corten-700">
+                        {s.heading}
+                      </dt>
+                      <dd>
+                        <ul className="mt-3 space-y-2 text-sm text-stone2-700">
+                          {s.items.map((item) => (
+                            <li key={item} className="flex gap-3">
+                              <span
+                                aria-hidden="true"
+                                className="mt-[9px] inline-block h-px w-3 shrink-0 bg-corten-500"
+                              />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </section>
+            )}
           </div>
         </div>
       </article>

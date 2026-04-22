@@ -13,17 +13,17 @@ export default function Header() {
         <Link
           href="/"
           className="flex items-center gap-3"
-          aria-label="Visit Big Spring home"
+          aria-label="Visit Big Spring — home"
         >
-          <Logo />
-          <span className="flex flex-col leading-tight">
-            <span className="font-display text-lg font-[600] text-stone2-900 tracking-tight">
-              Visit Big Spring
-            </span>
-            <span className="slab text-[9px] uppercase tracking-[0.32em] text-corten-700">
-              West Texas · Est. 1882
-            </span>
-          </span>
+          {/* Official Visit Big Spring wordmark (PNG-in-SVG, 332×199) */}
+          <img
+            src="/assets/brand/big-spring-logo.svg"
+            alt="Visit Big Spring"
+            width="332"
+            height="199"
+            className="h-12 w-auto md:h-14"
+            decoding="async"
+          />
         </Link>
 
         <nav
@@ -140,20 +140,3 @@ export default function Header() {
   );
 }
 
-function Logo() {
-  return (
-    <span
-      aria-hidden="true"
-      className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-corten-500 text-limestone-50"
-    >
-      {/* Compass rose with a mesa inside — custom mark, not an icon font */}
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-        <path
-          d="M4 17 L9 12 L12 14 L15 10 L20 16 L20 17 Z"
-          fill="currentColor"
-        />
-        <circle cx="17" cy="6" r="2" fill="currentColor" />
-      </svg>
-    </span>
-  );
-}

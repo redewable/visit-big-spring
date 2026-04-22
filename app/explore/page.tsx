@@ -24,7 +24,7 @@ export default function ExplorePage() {
         title="Mesas, lakes, tee boxes and trails."
         subtitle="A 382-acre state park on a mesa top, a 136-acre CCC-built recreation park with a 6,000-seat amphitheater, 18 holes of mesquite-lined golf — and a sandhill crane observatory for late October."
         accent="obsidian"
-        image="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=2000&q=70"
+        image="/assets/venues/big-spring-state-park-sunset.png"
       />
       <section className="container-bs py-20 md:py-28">
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">

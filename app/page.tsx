@@ -1,7 +1,6 @@
 import Link from "next/link";
 import EventCard from "@/components/EventCard";
 import BusinessCard from "@/components/BusinessCard";
-import WestTexasScene from "@/components/WestTexasScene";
 import WeatherChip from "@/components/WeatherChip";
 import { sections, upcomingEvents, businesses, venues } from "@/lib/data";
 
@@ -18,12 +17,23 @@ export default async function HomePage() {
         aria-labelledby="hero-title"
         className="relative isolate overflow-hidden bg-[#0b0a14] text-limestone-50"
       >
-        {/* When the CVB supplies real drone footage, pass `videoSrc` here.  */}
-        {/* The SVG scene remains as a graceful, reduced-motion fallback.   */}
-        <WestTexasScene
-          className="absolute inset-0 -z-10 h-full w-full"
-          // videoSrc="/media/big-spring-hero.mp4"
-          // videoPoster="/media/big-spring-hero-poster.jpg"
+        {/* Real CVB photography — Scenic Mountain at dusk, wind-turbine ridge */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 bg-cover bg-center"
+          style={{
+            backgroundImage:
+              "url(/assets/venues/sunset-wind-turbines.jpeg)",
+          }}
+        />
+        {/* Dark-to-ground wash for type legibility */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(11,10,20,0.65) 0%, rgba(11,10,20,0.25) 38%, rgba(11,10,20,0.55) 72%, rgba(11,10,20,0.88) 100%)",
+          }}
         />
 
         <div className="container-bs flex min-h-[88vh] flex-col justify-end pb-12 pt-24 sm:min-h-[92vh] sm:pb-16 md:pb-20 md:pt-28">
@@ -375,18 +385,27 @@ export default async function HomePage() {
         aria-labelledby="sunset-title"
         className="relative overflow-hidden bg-[#1a1324] py-24 text-limestone-50 md:py-36"
       >
+        {/* Real CVB Sunset Big Spring artwork behind the type */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-cover bg-center opacity-85"
+          style={{
+            backgroundImage: "url(/assets/brand/sunset-big-spring-art.png)",
+          }}
+        />
+        {/* Wash for legibility — darker at top, clearer toward the horizon */}
         <div
           aria-hidden="true"
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(155deg, #1a1324 0%, #4a2230 30%, #8f3f24 65%, #d88a4e 100%)",
+              "linear-gradient(180deg, rgba(26,19,36,0.55) 0%, rgba(26,19,36,0.15) 45%, rgba(26,19,36,0.45) 100%)",
           }}
         />
         {/* Horizon rule */}
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 top-[62%] h-[1px] bg-limestone-50/20"
+          className="absolute inset-x-0 top-[62%] h-[1px] bg-limestone-50/25"
         />
         <div className="container-bs relative text-center">
           <p className="cine-label text-limestone-50/80">#SUNSETBIGSPRING</p>

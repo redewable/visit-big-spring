@@ -89,8 +89,7 @@ export const businesses: Business[] = [
     address: "1 Scenic Drive, Big Spring, TX 79720",
     phone: "432-263-4931",
     website: "https://tpwd.texas.gov/state-parks/big-spring",
-    image:
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1400&q=70",
+    image: "/assets/venues/big-spring-state-park.png",
     tags: ["State park", "Scenic drive", "Free entry"],
     lat: 32.2285,
     lng: -101.4902,
@@ -105,8 +104,7 @@ export const businesses: Business[] = [
       "The city's 136-acre recreation hub — lake, 6,000-seat CCC amphitheater, disc golf, walking trails, and the seasonal Festival of Lights.",
     address: "Golf Course Road, Big Spring, TX 79720",
     phone: "432-264-2323",
-    image:
-      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1400&q=70",
+    image: "/assets/venues/comanche-trail-park-entrance.jpeg",
     tags: ["Park", "CCC heritage", "Family friendly"],
     lat: 32.2128,
     lng: -101.4828,
@@ -120,8 +118,7 @@ export const businesses: Business[] = [
       "An 18-hole municipal course carved through mesquite and live oak — the only rolling-hills course in West Texas. Tee times welcome visitors year-round.",
     address: "2401 Whipkey Dr, Big Spring, TX 79720",
     phone: "432-264-2366",
-    image:
-      "https://images.unsplash.com/photo-1535132011086-b8818f016104?auto=format&fit=crop&w=1400&q=70",
+    image: "/assets/venues/golf-course.jpeg",
     tags: ["Golf", "Municipal", "Year-round"],
     lat: 32.2101,
     lng: -101.4788,
@@ -164,8 +161,7 @@ export const businesses: Business[] = [
       "A 6,000-seat outdoor stone amphitheater built by the Civilian Conservation Corps in 1930 — home to Pops in the Park every July 3rd.",
     address: "Golf Course Road, Big Spring, TX 79720",
     phone: "432-264-2323",
-    image:
-      "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1400&q=70",
+    image: "/assets/venues/comanche-trail-park-ampitheater.jpeg",
     tags: ["Events venue", "CCC-built"],
     lat: 32.2118,
     lng: -101.4831,
@@ -676,8 +672,7 @@ export const events: Event[] = [
     location: "Comanche Trail Amphitheater",
     lat: 32.2118,
     lng: -101.4831,
-    image:
-      "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1400&q=70",
+    image: "/assets/venues/comanche-trail-park-ampitheater.jpeg",
     summary:
       "The Big Spring Symphony's free Independence-Eve concert — patriotic music and fireworks finale.",
     description:
@@ -775,8 +770,7 @@ export const venues: Venue[] = [
       "Parking for 1,000+",
     ],
     phone: "432-264-2323",
-    image:
-      "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1400&q=70",
+    image: "/assets/venues/comanche-trail-park-ampitheater.jpeg",
     blurb:
       "The city's largest venue. A CCC-built stone amphitheater inside Comanche Trail Park, for concerts, rodeo kick-offs, symphony nights and the Annual Fourth of July Celebration.",
   },

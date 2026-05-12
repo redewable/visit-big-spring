@@ -11,7 +11,7 @@ export default function Header() {
     <header className="sticky top-0 z-40 border-b border-stone2-900/10 bg-sand-50/85 backdrop-blur">
       <div className="container-bs flex items-center justify-between py-4">
         <Link
-          href="/"
+          href="/home"
           className="flex items-center gap-3"
           aria-label="Visit Big Spring — home"
         >

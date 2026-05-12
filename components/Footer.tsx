@@ -165,6 +165,24 @@ export default function Footer() {
           </ul>
         </div>
       </div>
+
+      <div className="border-t border-limestone-100/10">
+        <div className="container-bs py-5 text-xs leading-relaxed text-limestone-100/60">
+          <p>
+            © 2026 COAT Creative · A{" "}
+            <a
+              href="https://talormayde.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit talormayde, the parent brand of COAT Creative"
+              className="text-limestone-100/80 hover:text-corten-400 hover:underline"
+            >
+              talormayde
+            </a>{" "}
+            Brand
+          </p>
+        </div>
+      </div>
     </footer>
   );
 }

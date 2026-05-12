@@ -11,7 +11,7 @@ const base = (size = 24): React.SVGProps<SVGSVGElement> => ({
   viewBox: "0 0 24 24",
   fill: "none",
   stroke: "currentColor",
-  strokeWidth: 1.5,
+  strokeWidth: 1,
   strokeLinecap: "round",
   strokeLinejoin: "round",
   "aria-hidden": true,
@@ -91,6 +91,88 @@ export function CompassIcon({ size, ...rest }: IconProps) {
       <circle cx="12" cy="12" r="9" />
       <path d="M12 3 L13 10 L12 12 L11 10 Z" fill="currentColor" />
       <path d="M12 21 L11 14 L12 12 L13 14 Z" />
+    </svg>
+  );
+}
+
+/* -------------------------------------------------------------- */
+/* Pathway icons — used on the home page "Where do you start?"     */
+/* -------------------------------------------------------------- */
+
+export function HotelIcon({ size, ...rest }: IconProps) {
+  return (
+    <svg {...base(size)} {...rest}>
+      {/* Tower with Art Deco stepped crown — Hotel Settles, 12 stories above podium */}
+      <path d="M10 17 V7 H11 V6 H12 V5 H13 V6 H14 V7 H15 V17 Z" />
+      {/* Center column hint */}
+      <path d="M12.5 7 V17" />
+      {/* Podium / base — extends only ~3 "windows" beyond tower on each side */}
+      <path d="M7.5 17 H17.5 V20 H7.5 Z" />
+      {/* Arched entrance at center */}
+      <path d="M11.5 20 V18.5 Q12.5 17.8 13.5 18.5 V20" />
+    </svg>
+  );
+}
+
+export function CocktailGlassIcon({ size, ...rest }: IconProps) {
+  return (
+    <svg {...base(size)} {...rest}>
+      {/* Martini bowl — wide V tapering to a point */}
+      <path d="M4 4 L20 4 L12 13 Z" />
+      {/* Stem */}
+      <path d="M12 13 V20" />
+      {/* Foot */}
+      <path d="M7 20 H17" />
+      {/* Olive garnish */}
+      <circle cx="9" cy="6.5" r="0.9" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function BootIcon({ size, ...rest }: IconProps) {
+  return (
+    <svg {...base(size)} {...rest}>
+      {/* Cowboy boot — tall shaft w/ v-notch, pointed toe, stacked heel */}
+      <path
+        d="M5 3 L7 3 L8 4.5 L9 3 L11 3 L11 12 L20 14 L22 15 L19 17 L9 17 L9 21 L3 21 L5 17 Z"
+      />
+      {/* Welt stitch at the instep — separates shaft from foot */}
+      <path d="M11 13.5 L8.5 14.5" />
+      {/* Pull strap on the back of the shaft */}
+      <path d="M5.5 4.5 L5.5 7" />
+    </svg>
+  );
+}
+
+export function MapIcon({ size, ...rest }: IconProps) {
+  return (
+    <svg {...base(size)} {...rest}>
+      {/* Folded map — three panels */}
+      <path d="M3 5 L9 3 L15 5 L21 3 V19 L15 21 L9 19 L3 21 Z" />
+      <path d="M9 3 V19" />
+      <path d="M15 5 V21" />
+      {/* Pin marker */}
+      <path d="M12 8 Q10.5 8 10.5 9.5 Q10.5 11 12 12 Q13.5 11 13.5 9.5 Q13.5 8 12 8 Z" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function CalendarIcon({ size, ...rest }: IconProps) {
+  return (
+    <svg {...base(size)} {...rest}>
+      {/* Body */}
+      <rect x="3" y="5" width="18" height="16" rx="1" />
+      {/* Header bar */}
+      <path d="M3 10 H21" />
+      {/* Binder rings */}
+      <path d="M8 3 V7" />
+      <path d="M16 3 V7" />
+      {/* Date dots */}
+      <circle cx="8" cy="14" r="0.9" fill="currentColor" stroke="none" />
+      <circle cx="12" cy="14" r="0.9" fill="currentColor" stroke="none" />
+      <circle cx="16" cy="14" r="0.9" fill="currentColor" stroke="none" />
+      <circle cx="8" cy="18" r="0.9" fill="currentColor" stroke="none" />
+      <circle cx="12" cy="18" r="0.9" fill="currentColor" stroke="none" />
     </svg>
   );
 }

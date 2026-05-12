@@ -2,7 +2,23 @@ import Link from "next/link";
 import EventCard from "@/components/EventCard";
 import BusinessCard from "@/components/BusinessCard";
 import WeatherChip from "@/components/WeatherChip";
+import {
+  HotelIcon,
+  CocktailGlassIcon,
+  MesaIcon,
+  MapIcon,
+  CalendarIcon,
+} from "@/components/Icons";
 import { sections, upcomingEvents, businesses, venues } from "@/lib/data";
+import type { SectionKey } from "@/lib/data";
+
+const sectionIcons: Record<SectionKey, React.ComponentType<{ className?: string }>> = {
+  stay: HotelIcon,
+  "eat-drink": CocktailGlassIcon,
+  explore: MesaIcon,
+  history: MapIcon,
+  events: CalendarIcon,
+};
 
 export default async function HomePage() {
   const featuredEvents = upcomingEvents(3);
@@ -70,19 +86,20 @@ export default async function HomePage() {
             </Link>
           </div>
 
-          {/* Spec strip — single line, confident */}
-          <div className="mt-14 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-limestone-50/20 pt-6 text-[11px] text-limestone-50/70 sm:gap-x-10">
-            <span className="cine-label">
+          {/* Spec strip — balanced grid, no orphan wraps */}
+          <div className="mt-14 grid grid-cols-2 gap-y-3 border-t border-limestone-50/20 pt-6 text-[11px] text-limestone-50/70 sm:grid-cols-4 sm:gap-y-0">
+            <span className="cine-label sm:border-r sm:border-limestone-50/20 sm:pr-4">
               HOWARD CO · <span className="slab">TX</span>
             </span>
-            <Spacer />
-            <span className="cine-label">
+            <span className="cine-label sm:border-r sm:border-limestone-50/20 sm:px-4">
               I-20 <span className="slab">×</span> U.S.<span className="slab"> 87</span>
             </span>
-            <Spacer />
-            <span className="cine-label">ELEV. <span className="slab">2,405 ft</span></span>
-            <Spacer className="hidden sm:inline-block" />
-            <span className="hidden cine-label sm:inline">STATE PARK <span className="slab">382 ac</span></span>
+            <span className="cine-label sm:border-r sm:border-limestone-50/20 sm:px-4">
+              ELEV. <span className="slab">2,405 ft</span>
+            </span>
+            <span className="cine-label sm:pl-4">
+              STATE PARK <span className="slab">382 ac</span>
+            </span>
           </div>
         </div>
       </section>
@@ -90,7 +107,7 @@ export default async function HomePage() {
       {/* ================================================================ */}
       {/* INTERMISSION — Dune moment. One line. Negative space.             */}
       {/* ================================================================ */}
-      <section className="relative overflow-hidden bg-[#0b0a14] py-28 text-limestone-50 sm:py-36">
+      <section className="relative overflow-hidden bg-[#0b0a14] py-16 text-limestone-50 sm:py-24">
         {/* Faint grain */}
         <div
           aria-hidden="true"
@@ -101,7 +118,15 @@ export default async function HomePage() {
           }}
         />
         <div className="container-bs relative">
-          <div className="max-w-4xl">
+          {/* Giant decorative open-quote — editorial watermark */}
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute left-0 top-0 z-0 select-none font-display leading-[0.8] text-limestone-50/[0.07]"
+            style={{ fontSize: "clamp(14rem, 36vw, 24rem)" }}
+          >
+            &ldquo;
+          </span>
+          <div className="relative z-10 max-w-4xl">
             <span className="tick-rule block text-corten-400" />
             <p className="mt-8 font-display text-[clamp(1.75rem,4.5vw,3.25rem)] font-[500] leading-[1.15] text-limestone-50">
               &ldquo;As a midpoint in West Texas, Big Spring delivers a mixture
@@ -138,30 +163,40 @@ export default async function HomePage() {
           </div>
 
           <ul className="mt-16 grid gap-0 border-y border-stone2-900/15 md:grid-cols-5">
-            {sections.map((s, i) => (
-              <li
-                key={s.key}
-                className="border-b border-stone2-900/10 md:border-b-0 md:border-r md:last:border-r-0"
-              >
-                <Link
-                  href={s.href}
-                  className="group block p-8 transition hover:bg-sand-100 focus:outline-none md:min-h-[260px]"
+            {sections.map((s, i) => {
+              const Icon = sectionIcons[s.key];
+              return (
+                <li
+                  key={s.key}
+                  className="border-b border-stone2-900/10 md:border-b-0 md:border-r md:last:border-r-0"
                 >
-                  <span className="slab text-[11px] tracking-[0.3em] text-corten-600">
-                    № 0{i + 1}
-                  </span>
-                  <h3 className="monument mt-4 text-4xl text-stone2-900 md:text-3xl lg:text-4xl">
-                    {s.label}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-stone2-700">
-                    {s.tagline}
-                  </p>
-                  <span className="cine-label mt-6 inline-flex items-center gap-2 text-corten-700 transition group-hover:translate-x-1">
-                    Enter <Arrow />
-                  </span>
-                </Link>
-              </li>
-            ))}
+                  <Link
+                    href={s.href}
+                    className="group relative block p-8 transition hover:bg-sand-100 focus:outline-none md:min-h-[260px]"
+                  >
+                    <div className="flex items-center gap-6 md:block">
+                      <div className="min-w-0 flex-1">
+                        <span className="slab text-[11px] tracking-[0.3em] text-corten-600">
+                          № 0{i + 1}
+                        </span>
+                        <h3 className="monument mt-4 text-4xl text-stone2-900 md:text-3xl lg:text-4xl">
+                          {s.label}
+                        </h3>
+                        <p className="mt-3 text-sm leading-relaxed text-stone2-700">
+                          {s.tagline}
+                        </p>
+                        <span className="cine-label mt-6 inline-flex items-center gap-2 text-corten-700 transition group-hover:translate-x-1">
+                          Enter <Arrow />
+                        </span>
+                      </div>
+                      <Icon
+                        className="h-20 w-20 shrink-0 text-corten-600 transition group-hover:text-corten-700 md:absolute md:right-6 md:top-6 md:h-10 md:w-10"
+                      />
+                    </div>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </section>
@@ -239,20 +274,18 @@ export default async function HomePage() {
       {/* ================================================================ */}
       <section aria-labelledby="events-title" className="bg-limestone-50 py-20 md:py-28">
         <div className="container-bs">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <div>
-              <span className="tick-rule block text-corten-500" />
-              <p className="cine-label mt-5 text-corten-700">Happening soon</p>
-              <h2
-                id="events-title"
-                className="monument mt-4 text-[clamp(2.25rem,5vw,3.75rem)]"
-              >
-                This season<br />in Big Spring.
-              </h2>
+          <div>
+            <span className="tick-rule block text-corten-500" />
+            <div className="mt-5 flex items-center gap-3">
+              <CalendarIcon className="h-5 w-5 text-corten-700" />
+              <p className="cine-label text-corten-700">Happening soon</p>
             </div>
-            <Link href="/events" className="btn-ghost">
-              The full calendar <Arrow />
-            </Link>
+            <h2
+              id="events-title"
+              className="monument mt-4 text-[clamp(2.25rem,5vw,3.75rem)]"
+            >
+              This season<br />in Big Spring.
+            </h2>
           </div>
 
           <ul className="mt-12 grid gap-6 md:grid-cols-3">
@@ -262,6 +295,12 @@ export default async function HomePage() {
               </li>
             ))}
           </ul>
+
+          <div className="mt-12 flex justify-center">
+            <Link href="/events" className="btn-ghost">
+              The full calendar <Arrow />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -341,20 +380,18 @@ export default async function HomePage() {
       {/* ================================================================ */}
       <section aria-labelledby="places-title" className="bg-sand-50 py-20 md:py-28">
         <div className="container-bs">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <div>
-              <span className="tick-rule block text-corten-500" />
-              <p className="cine-label mt-5 text-corten-700">Local favorites</p>
-              <h2
-                id="places-title"
-                className="monument mt-4 text-[clamp(1.875rem,4.5vw,3.25rem)]"
-              >
-                The locals&apos; list.
-              </h2>
+          <div>
+            <span className="tick-rule block text-corten-500" />
+            <div className="mt-5 flex items-center gap-3">
+              <MapIcon className="h-5 w-5 text-corten-700" />
+              <p className="cine-label text-corten-700">Local favorites</p>
             </div>
-            <Link href="/explore" className="btn-ghost">
-              More places <Arrow />
-            </Link>
+            <h2
+              id="places-title"
+              className="monument mt-4 text-[clamp(1.875rem,4.5vw,3.25rem)]"
+            >
+              The locals&apos; list.
+            </h2>
           </div>
           <ul className="mt-12 grid gap-6 md:grid-cols-3">
             {featuredPlaces.map((b) => (
@@ -363,6 +400,12 @@ export default async function HomePage() {
               </li>
             ))}
           </ul>
+
+          <div className="mt-12 flex justify-center">
+            <Link href="/explore" className="btn-ghost">
+              More places <Arrow />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -569,15 +612,6 @@ function DateRow({
       <span aria-hidden="true" />
       <span className="mt-1 text-sm text-limestone-50/70">{context}</span>
     </li>
-  );
-}
-
-function Spacer({ className = "" }: { className?: string }) {
-  return (
-    <span
-      aria-hidden="true"
-      className={`inline-block h-[1px] w-6 bg-limestone-50/40 ${className}`}
-    />
   );
 }
 

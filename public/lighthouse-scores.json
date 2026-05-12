@@ -1,10 +1,10 @@
 {
-  "runOn": "2026-04-22T17:17:59.146Z",
+  "runOn": "2026-05-12T21:15:49.460Z",
   "url": "https://visit-big-spring.vercel.app/",
   "formFactor": "mobile",
-  "performance": 72,
+  "performance": 73,
   "accessibility": 96,
   "bestPractices": 96,
-  "seo": 100,
+  "seo": 60,
   "status": "ok"
 }

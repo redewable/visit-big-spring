@@ -7,7 +7,33 @@ export const metadata = {
   },
   description:
     "A working prototype of the next visitbigspring.com, curated for The City of Big Spring. RFP No. 26-016. Prepared by COAT Creative, a talormayde brand.",
-  robots: { index: false, follow: false },
+  keywords: [
+    "Visit Big Spring",
+    "Big Spring Texas tourism",
+    "Convention and Visitors Bureau",
+    "West Texas destination",
+    "RFP 26-016",
+    "COAT Creative",
+  ],
+  alternates: {
+    canonical: "https://visit-big-spring.vercel.app/",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://visit-big-spring.vercel.app/",
+    siteName: "Visit Big Spring",
+    title: "Visit Big Spring · RFP No. 26-016 — Prototype Cover",
+    description:
+      "A working, mobile-first prototype of the next visitbigspring.com — real photography, real local content, real architecture. Prepared for the City of Big Spring CVB by COAT Creative.",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Visit Big Spring · RFP No. 26-016 — Prototype Cover",
+    description:
+      "A working, mobile-first prototype of the next visitbigspring.com. Prepared for the City of Big Spring CVB by COAT Creative.",
+  },
+  robots: { index: true, follow: true },
 };
 
 const VISITOR_LINKS = [
